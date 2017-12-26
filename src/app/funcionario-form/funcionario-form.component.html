@@ -12,6 +12,9 @@
   <label>Nome: </label>
   <input type="text" class="form-control" [(ngModel)]="nome"
       (focus)="adicionado = false" appCampoColorido>
+  
+  <label>Campo teste: </label>
+  <input type="text" class="form-control">
 </div>
 <button type="button" class="btn btn-primary" (click)="adicionar()"
   [disabled]="nome.length == 0">Adicionar</button>
