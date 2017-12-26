@@ -3,22 +3,21 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-funcionario-card',
   templateUrl: './funcionario-card.component.html',
- //Utilizando css de arquivo externo
-  //styleUrls: ['./funcionario-card.component.css']
+ // Utilizando css de arquivo externo
+// styleUrls: ['./funcionario-card.component.css']
 
-  /*Utilizando css no proprio componente 
-    funciona como array de estilos*/
+  /* Utilizando css no proprio componente 
+    funciona como array de estilos */
     styles: [`
     .card-block {
       text-transform: uppercase;
       color: blue;
     }
-  `   
-]
+  `]
 })
 export class FuncionarioCardComponent {
 
-  //Input (decorador) permite fazer binding de objetos externos.
+  // Input (decorador) permite fazer binding de objetos externos.
   @Input() funcionario: any;
 
   /* Uma forma de fazer
