@@ -14,6 +14,9 @@ export class FuncionarioFormComponent {
   ultimoId = 0;
   nome = 'Andreia';
   adicionado = false;
+  dataAniversario = new Date(1997, 4, 14);
+  preco = 1001.80;
+  troco = 9.58;
   //Decorator para saída de evento
   @Output() funcionarioAdicionado = new EventEmitter();
 

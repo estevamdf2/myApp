@@ -20,3 +20,11 @@
 
 <button class="btn btn-info" (click)="campo.colorir()">Colorir</button>
 <button class="btn btn-info" (click)="campo.descolorir()">Descolorir</button>
+
+<!-- Uso do pipe para formatação -->
+<div class="container">
+  <p>{{nome | uppercase}}</p>
+  <p>{{dataAniversario | date}}</p>
+  <p>{{preco | number}}</p>
+  <p>{{troco | currency}}</p>
+</div>
