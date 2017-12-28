@@ -5,7 +5,8 @@ import { Directive, ElementRef, Renderer2, HostListener, HostBinding, Input } fr
  * ou aparência de algum elemento
  */
 @Directive({
-  selector: '[appCampoColorido]'
+  selector: '[appCampoColorido]',
+  exportAs: 'campoColorido'
 })
 export class CampoColoridoDirective {
  
@@ -15,11 +16,11 @@ export class CampoColoridoDirective {
   @HostBinding('style.backgroundColor') corDeFundo: string;
   
     //@HostListener escuta eventos do DOM
-   @HostListener('focus') aoGanharFoco(){
+   @HostListener('focus') colorir(){
       this.corDeFundo = this.cor;
    }
 
-   @HostListener('blur') aoPerderFoco(){
+   @HostListener('blur') descolorir(){
     this.corDeFundo = 'transparent';
  }
 
