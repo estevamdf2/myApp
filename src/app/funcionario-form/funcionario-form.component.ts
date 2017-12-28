@@ -9,6 +9,8 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class FuncionarioFormComponent {
 
+  corDoCampo = 'black';
+
   ultimoId = 0;
   nome = 'Andreia';
   adicionado = false;

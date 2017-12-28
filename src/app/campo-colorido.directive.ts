@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Renderer2, HostListener, HostBinding, Input } from '@angular/core';
 
 /**
  * A diretiva altera o comportamento
@@ -9,12 +9,14 @@ import { Directive, ElementRef, Renderer2, HostListener, HostBinding } from '@an
 })
 export class CampoColoridoDirective {
  
+  // tslint:disable-next-line:no-input-rename
+  @Input('appCampoColorido') cor = 'gray';
   // HostBinding vincula o estilo a uma propriedade
   @HostBinding('style.backgroundColor') corDeFundo: string;
   
     //@HostListener escuta eventos do DOM
    @HostListener('focus') aoGanharFoco(){
-      this.corDeFundo = 'yellow';
+      this.corDeFundo = this.cor;
    }
 
    @HostListener('blur') aoPerderFoco(){
