@@ -12,7 +12,7 @@
 
 <div class="container">
 
-    {{cliente | json }}
+  {{ usuarioForm.valid}}
     <br>
     {{ usuarioForm.invalid}}
   
@@ -24,23 +24,31 @@
     <form autocomplete="off" #usuarioForm="ngForm" (ngSubmit)="salvar(usuarioForm)">
       <div class="form-group">
         <label class="form-control-label">Nome</label>
+        <!-- #nome=ngModel faz um binding para usar no if da validação -->
         <input type="text" class="form-control" name="primeiroNome"
-          [(ngModel)]="cliente.nome" required minlength="5">
+          [(ngModel)]="cliente.nome" required minlength="5" #nome="ngModel">
+
+          <div *ngIf="nome.hasError('required')">Informe um nome</div>
+          <div *ngIf="nome.hasError('minlength')">O nome deve ser completo</div>
       </div>
   
       <div class="form-group">
           <label class="form-control-label">E-mail</label>
           <input type="text" class="form-control" name="emailAddress"
-            [(ngModel)]="cliente.email" required email>
+            [(ngModel)]="cliente.email" email #email="ngModel">
+
+            <div *ngIf="email.invalid">Informe um e-mail válido.</div>
       </div>
   
       <div class="form-group">
           <label class="form-control-label">Profissão</label>
           <select class="form-control" name="profissao"
-            [(ngModel)]="cliente.profissao" required>
+            [(ngModel)]="cliente.profissao" required #profissao="ngModel">
             <option value="">Selecione</option>
             <option *ngFor="let profissao of profissoes" value="profissao">{{profissao}}</option>
           </select>
+
+          <div *ngIf="profissao.invalid">Informe uma profissão.</div>
         </div>
   
         <button type="submit" class="btn btn-primary"
