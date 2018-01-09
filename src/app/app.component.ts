@@ -33,6 +33,12 @@ export class AppComponent {
     this.cliente.profissao = form.value.profissao;
     console.log(form);
     console.log(this.cliente);
+
+    // reset dos campos
+    form.reset();
+
+    // reset com valores padrão
+    // form.reset({ primeiroNome: 'Sebastião', profissao: ''});
   }
 
 }
