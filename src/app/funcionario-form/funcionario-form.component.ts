@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FuncionarioService } from "./../funcionario.service";
 
 
 @Component({
@@ -11,27 +12,20 @@ export class FuncionarioFormComponent {
 
   corDoCampo = 'black';
 
-  ultimoId = 0;
-  nome = 'Andreia';
-  adicionado = false;
-  dataAniversario = new Date(1997, 4, 14);
-  preco = 1001.80;
-  troco = 9.58;
+  funcionarioService: FuncionarioService;
   //Decorator para saída de evento
   @Output() funcionarioAdicionado = new EventEmitter();
 
-  adicionar(nomeInput: any){
-  	
-   this.adicionado = true;
-   const funcionario = {
-      id: ++this.ultimoId, 
-      nome: this.nome
-   };
-   
-   //Passa o funcionário para o app.component.ts
-   this.funcionarioAdicionado.emit(funcionario);
-   
+  constructor(){
+    this.funcionarioService = new FuncionarioService();
   }
-  
+
+  adicionar(nome:string){
+    console.log("metodo adiconar");
+    console.log(nome);
+  this.funcionarioService.adicionar(nome)	;
+
+  }
+
 
 }

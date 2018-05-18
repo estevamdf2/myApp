@@ -1,26 +1,26 @@
-<div class="alert alert-sucess" role="alert" *ngIf="adicionado"> 
+<div class="alert alert-sucess" role="alert" *ngIf="adicionado">
   Funcionário adicionado : <strong>{{nome}}</strong>
 </div>
 
-<!-- 
+<!--
   [ ] - cria property bind
   ( ) -> cria event bind
 
   [(ngModel)] - >uso two way data binding
 -->
-<div class="form-group"> 
+<div class="form-group">
   <label>Nome: </label>
-  <input type="text" class="form-control" [(ngModel)]="nome"
+<input type="text" class="form-control" [(ngModel)]="nome"
       (focus)="adicionado = false" [appCampoColorido] cor
       #campo="campoColorido">
-  
+
 </div>
 <button type="button" class="btn btn-primary" (click)="adicionar()"
   [disabled]="nome.length == 0">Adicionar</button>
-
+<!--
 <button class="btn btn-info" (click)="campo.colorir()">Colorir</button>
 <button class="btn btn-info" (click)="campo.descolorir()">Descolorir</button>
-
+-->
 <!-- Uso do pipe para formatação -->
 <div class="container">
   <p>{{nome | uppercase}}</p>
