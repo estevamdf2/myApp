@@ -16,29 +16,24 @@ class Cliente {
 export class AppComponent {
   
 
-  funcionarios = [];
+  cidades = [
+    {id: 1, nome: 'Uberlândia'},
+    {id: 2, nome: 'São Paulo'},
+    {id: 3, nome: 'Florianópolis'},
+    {id: 4, nome: 'Curitiba'},
+  ];
 
   //parametro funcionario passado pelo $ event no html
-  aoAdicionar(funcionario){
-    this.funcionarios.push(funcionario);
+  aoAdicionar(nome: string){
+    alert(nome);
   }
 
-  profissoes = ['Arquiteto', 'Engenheiro', 'Programador'];
+  excluir(id: number){
+    alert(id);
+  }
 
-  cliente = new Cliente();
-
-  salvar(form: NgForm) {
-    this.cliente.nome = form.value.primeiroNome;
-    this.cliente.email = form.value.emailAddress;
-    this.cliente.profissao = form.value.profissao;
-    console.log(form);
-    console.log(this.cliente);
-
-    // reset dos campos
-    form.reset();
-
-    // reset com valores padrão
-    // form.reset({ primeiroNome: 'Sebastião', profissao: ''});
+  atualizar(cidade: any){
+    alert(JSON.stringify(cidade));
   }
 
 }
