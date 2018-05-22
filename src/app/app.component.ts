@@ -11,20 +11,34 @@ import { CidadeService } from './cidade.service';
 })
 export class AppComponent implements OnInit {
  
+  
   cidades = [];
 
-  construtor(private cidadeService: CidadeService){}
+  constructor(private cidadeService: CidadeService){}
 
   ngOnInit(){
+    this.consultar();
+  }
+
+  consultar(){
     this.cidadeService.consultar()
     .then(dados => {
       this.cidades = dados;
       console.log(this.cidades);
     })
   }
+
   //parametro funcionario passado pelo $ event no html
-  aoAdicionar(nome: string){
-    alert(nome);
+  adicionar(nome: string){
+    this.cidadeService.adicionar({nome})
+     .then(cidade => {
+      alert(`Cidade "${cidade.nome} " adicionada com código ${cidade.id}! `);
+
+      //chamar apos criar a cidade
+      this.consultar();
+     });
+
+     
   }
 
   excluir(id: number){
