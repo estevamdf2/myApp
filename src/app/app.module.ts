@@ -17,11 +17,13 @@ import { CidadeService } from './cidade.service'
     FuncionarioCardComponent,
     FuncionarioFormComponent,
     CampoColoridoDirective
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
+    
   ],
   providers: [CidadeService],
   bootstrap: [AppComponent]
