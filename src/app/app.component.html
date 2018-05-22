@@ -5,8 +5,8 @@
       <input type="text" class="form-control" #nome />
   </div>
 
-  <button type="button" class="btn btn-primary"
-   (click)="adicionar(nome.value)"; nome.value="''">Adicionar</button>
+  <button type="button"
+   (click)="adicionar(nome.value)">Adicionar</button>
 
   <table class="table" style="margin-top: 20px">
       <thead>
@@ -18,14 +18,14 @@
       </thead>
       <tbody>
           <tr *ngFor="let cidade of cidades">
-             <td>{{ cidade.id }}</td> 
+             <td>{{ cidade.id }}</td>
              <td>
                  <div class="input-group">
                      <input type="text" class="form-control" [(ngModel)]="cidade.nome">
-                     <span class="input-group-btn">
+
                          <button class="btn btn-primary"
                          (click)="atualizar(cidade)">Atualizar</button>
-                     </span>
+
                  </div>
              </td>
              <td>

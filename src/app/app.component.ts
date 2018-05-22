@@ -1,28 +1,27 @@
-import { Component } from '@angular/core';
+import { Component , OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CidadeService } from './cidade.service';
 
 
-class Cliente {
-  nome: string;
-  email: string;
-  profissao: string;
-}
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  
+export class AppComponent implements OnInit {
+ 
+  cidades = [];
 
-  cidades = [
-    {id: 1, nome: 'Uberlândia'},
-    {id: 2, nome: 'São Paulo'},
-    {id: 3, nome: 'Florianópolis'},
-    {id: 4, nome: 'Curitiba'},
-  ];
+  construtor(private cidadeService: CidadeService){}
 
+  ngOnInit(){
+    this.cidadeService.consultar()
+    .then(dados => {
+      this.cidades = dados;
+      console.log(this.cidades);
+    })
+  }
   //parametro funcionario passado pelo $ event no html
   aoAdicionar(nome: string){
     alert(nome);
