@@ -31,6 +31,27 @@
     {
       "nome": "Ceilândia",
       "id": 10
+    },
+    {
+      "cidade": {
+        "nome": "Taguatinga",
+        "id": 10
+      },
+      "id": 12
+    },
+    {
+      "cidade": {
+        "nome": "Brazlandia",
+        "id": 4
+      },
+      "id": 13
+    },
+    {
+      "cidade": {
+        "nome": "Guara",
+        "id": 10
+      },
+      "id": 14
     }
   ]
 }

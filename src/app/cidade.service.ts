@@ -27,4 +27,11 @@ export class CidadeService {
       .toPromise()
       .then(() => null);
   }
+
+  atualizar(cidade: any) : Promise<any>{
+    return this.http.put(`http://localhost:3000/cidades/${cidade.id}`,cidade)
+      .toPromise()
+      .then(response => 
+        response.json())
+  }
 }
