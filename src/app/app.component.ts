@@ -26,6 +26,9 @@ export class AppComponent implements OnInit {
       this.cidades = dados;
       console.log(this.cidades);
     })
+    .catch(error =>{
+      alert(error); //Retorna a mensagem definida no Promise.reject
+    });
   }
 
   //parametro funcionario passado pelo $ event no html

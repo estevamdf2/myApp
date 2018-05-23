@@ -11,7 +11,10 @@ export class CidadeService {
   consultar(): Promise<any>{
     return this.http.get('http://localhost:3000/cidades')
       .toPromise()
-      .then(response => response.json());
+      .then(response => response.json())
+      .catch(error =>{
+        return Promise.reject('Falha ao consultar as cidades');
+      });
       
   }
 
@@ -29,9 +32,12 @@ export class CidadeService {
   }
 
   atualizar(cidade: any) : Promise<any>{
-    return this.http.put(`http://localhost:3000/cidades/${cidade.id}`,cidade)
+    return this.http.put(`http://localhost:3000/cidade/${cidade.id}`,cidade)
       .toPromise()
       .then(response => 
         response.json())
+      .catch(erro => {
+        console.log(erro);
+      });
   }
 }
